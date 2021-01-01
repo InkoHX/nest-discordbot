@@ -1,11 +1,13 @@
 import { Module } from '@nestjs/common'
+import { DiscoveryModule } from '@nestjs/core'
 
 import { AppController } from './app.controller'
-import { AppService } from './app.service'
+import { BotEventsService } from './bot-events/bot-events.service'
+import { BotService } from './bot/bot.service'
 
 @Module({
-  imports: [],
+  imports: [DiscoveryModule],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [BotService, BotEventsService],
 })
 export class AppModule {}
